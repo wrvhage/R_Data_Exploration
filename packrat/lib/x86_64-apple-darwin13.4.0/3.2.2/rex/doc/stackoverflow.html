@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Jim Hester" />
+
+<meta name="date" content="2015-04-27" />
+
+<title>Stackoverflow Usage Examples</title>
+
+
+
+
+<link href="data:text/css,body%20%7B%0A%20%20background%2Dcolor%3A%20%23fff%3B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20max%2Dwidth%3A%20700px%3B%0A%20%20overflow%3A%20visible%3B%0A%20%20padding%2Dleft%3A%202em%3B%0A%20%20padding%2Dright%3A%202em%3B%0A%20%20font%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0A%20%20font%2Dsize%3A%2014px%3B%0A%20%20line%2Dheight%3A%201%2E35%3B%0A%7D%0A%0A%23header%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0A%0A%23TOC%20%7B%0A%20%20clear%3A%20both%3B%0A%20%20margin%3A%200%200%2010px%2010px%3B%0A%20%20padding%3A%204px%3B%0A%20%20width%3A%20400px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20border%2Dradius%3A%205px%3B%0A%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20font%2Dsize%3A%2013px%3B%0A%20%20line%2Dheight%3A%201%2E3%3B%0A%7D%0A%20%20%23TOC%20%2Etoctitle%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%20%20font%2Dsize%3A%2015px%3B%0A%20%20%20%20margin%2Dleft%3A%205px%3B%0A%20%20%7D%0A%0A%20%20%23TOC%20ul%20%7B%0A%20%20%20%20padding%2Dleft%3A%2040px%3B%0A%20%20%20%20margin%2Dleft%3A%20%2D1%2E5em%3B%0A%20%20%20%20margin%2Dtop%3A%205px%3B%0A%20%20%20%20margin%2Dbottom%3A%205px%3B%0A%20%20%7D%0A%20%20%23TOC%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dleft%3A%20%2D2em%3B%0A%20%20%7D%0A%20%20%23TOC%20li%20%7B%0A%20%20%20%20line%2Dheight%3A%2016px%3B%0A%20%20%7D%0A%0Atable%20%7B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dcolor%3A%20%23DDDDDD%3B%0A%20%20border%2Dstyle%3A%20outset%3B%0A%20%20border%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0A%20%20border%2Dwidth%3A%202px%3B%0A%20%20padding%3A%205px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%20%20line%2Dheight%3A%2018px%3B%0A%20%20padding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0A%20%20border%2Dleft%2Dstyle%3A%20none%3B%0A%20%20border%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Ap%20%7B%0A%20%20margin%3A%200%2E5em%200%3B%0A%7D%0A%0Ablockquote%20%7B%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20padding%3A%200%2E25em%200%2E75em%3B%0A%7D%0A%0Ahr%20%7B%0A%20%20border%2Dstyle%3A%20solid%3B%0A%20%20border%3A%20none%3B%0A%20%20border%2Dtop%3A%201px%20solid%20%23777%3B%0A%20%20margin%3A%2028px%200%3B%0A%7D%0A%0Adl%20%7B%0A%20%20margin%2Dleft%3A%200%3B%0A%7D%0A%20%20dl%20dd%20%7B%0A%20%20%20%20margin%2Dbottom%3A%2013px%3B%0A%20%20%20%20margin%2Dleft%3A%2013px%3B%0A%20%20%7D%0A%20%20dl%20dt%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%7D%0A%0Aul%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%7D%0A%20%20ul%20li%20%7B%0A%20%20%20%20list%2Dstyle%3A%20circle%20outside%3B%0A%20%20%7D%0A%20%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dbottom%3A%200%3B%0A%20%20%7D%0A%0Apre%2C%20code%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20color%3A%20%23333%3B%0A%7D%0Apre%20%7B%0A%20%20white%2Dspace%3A%20pre%2Dwrap%3B%20%20%20%20%2F%2A%20Wrap%20long%20lines%20%2A%2F%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20margin%3A%205px%200px%2010px%200px%3B%0A%20%20padding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Acode%20%7B%0A%20%20font%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0A%20%20font%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0A%20%20padding%3A%202px%200px%3B%0A%7D%0A%0Adiv%2Efigure%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0A%20%20background%2Dcolor%3A%20%23FFFFFF%3B%0A%20%20padding%3A%202px%3B%0A%20%20border%3A%201px%20solid%20%23DDDDDD%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20margin%3A%200%205px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%20%20font%2Dsize%3A%2035px%3B%0A%20%20line%2Dheight%3A%2040px%3B%0A%7D%0A%0Ah2%20%7B%0A%20%20border%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20padding%2Dbottom%3A%202px%3B%0A%20%20font%2Dsize%3A%20145%25%3B%0A%7D%0A%0Ah3%20%7B%0A%20%20border%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20font%2Dsize%3A%20120%25%3B%0A%7D%0A%0Ah4%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0A%20%20margin%2Dleft%3A%208px%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Ah5%2C%20h6%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23ccc%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Aa%20%7B%0A%20%20color%3A%20%230033dd%3B%0A%20%20text%2Ddecoration%3A%20none%3B%0A%7D%0A%20%20a%3Ahover%20%7B%0A%20%20%20%20color%3A%20%236666ff%3B%20%7D%0A%20%20a%3Avisited%20%7B%0A%20%20%20%20color%3A%20%23800080%3B%20%7D%0A%20%20a%3Avisited%3Ahover%20%7B%0A%20%20%20%20color%3A%20%23BB00BB%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%0A%2F%2A%20Class%20described%20in%20https%3A%2F%2Fbenjeffrey%2Ecom%2Fposts%2Fpandoc%2Dsyntax%2Dhighlighting%2Dcss%0A%20%20%20Colours%20from%20https%3A%2F%2Fgist%2Egithub%2Ecom%2Frobsimmons%2F1172277%20%2A%2F%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Keyword%20%2A%2F%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%2F%2A%20DataType%20%2A%2F%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%2F%2A%20DecVal%20%28decimal%20values%29%20%2A%2F%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20BaseN%20%2A%2F%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Float%20%2A%2F%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Char%20%2A%2F%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20String%20%2A%2F%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%2F%2A%20Comment%20%2A%2F%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%2F%2A%20OtherToken%20%2A%2F%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20AlertToken%20%2A%2F%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Function%20calls%20%2A%2F%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%2F%2A%20ErrorTok%20%2A%2F%0A%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div id="header">
+<h1 class="title">Stackoverflow Usage Examples</h1>
+<h4 class="author"><em>Jim Hester</em></h4>
+<h4 class="date"><em>2015-04-27</em></h4>
+</div>
+
+
+<div id="httpstackoverflow.comquestions27106552" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/27106552" class="uri">http://stackoverflow.com/questions/27106552</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>x &lt;- c(&quot;a=1&quot;, &quot;b=3&quot;, &quot;a=9&quot;, &quot;c=2&quot;, &quot;b=4&quot;, &quot;a=2&quot;)</code></pre>
+<p>First extract the names and values from the strings.</p>
+<pre><code>library(rex)
+matches &lt;- re_matches(x,
+  rex(
+    capture(name=&quot;name&quot;, letter),
+    &quot;=&quot;,
+    capture(name=&quot;value&quot;, digit)
+    ))
+matches
+
+#&gt;   name value
+#&gt; 1    a     1
+#&gt; 2    b     3
+#&gt; 3    a     9
+#&gt; 4    c     2
+#&gt; 5    b     4
+#&gt; 6    a     2</code></pre>
+<p>Then tally the groups using <code>split()</code>.</p>
+<pre><code>groups &lt;- split(as.numeric(matches$value), matches$name)
+groups
+
+#&gt; $a
+#&gt; [1] 1 9 2
+#&gt; 
+#&gt; $b
+#&gt; [1] 3 4
+#&gt; 
+#&gt; $c
+#&gt; [1] 2</code></pre>
+<p>If we try to convert directly to a data.frame from <code>split()</code> the groups with fewer members will have their members recycled rather than <code>NA</code>, so instead explicitly fill with <code>NA</code>.</p>
+<pre><code>largest_group &lt;- max(sapply(groups, length))
+largest_group
+
+#&gt; [1] 3
+
+
+groups &lt;- lapply(groups, function(group) {
+  if (length(group) &lt; largest_group) {
+    group[largest_group] &lt;- NA
+  }
+  group
+})
+groups
+
+#&gt; $a
+#&gt; [1] 1 9 2
+#&gt; 
+#&gt; $b
+#&gt; [1]  3  4 NA
+#&gt; 
+#&gt; $c
+#&gt; [1]  2 NA NA</code></pre>
+<p>Finally we can create the data.frame</p>
+<pre><code>do.call(&quot;data.frame&quot;, groups)
+
+#&gt;   a  b  c
+#&gt; 1 1  3  2
+#&gt; 2 9  4 NA
+#&gt; 3 2 NA NA</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions14146362" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/14146362/" class="uri">http://stackoverflow.com/questions/14146362/</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>mystrings &lt;- c(&quot;X2/D2/F4&quot;,
+               &quot;X10/D9/F4&quot;,
+               &quot;X3/D22/F4&quot;,
+               &quot;X9/D22/F9&quot;)
+
+library(rex)
+matches &lt;- re_matches(mystrings,
+  rex(
+    &quot;/&quot;,
+    any,
+    capture(name = &quot;numbers&quot;, digits)
+    )
+  )
+as.numeric(matches$numbers)
+
+#&gt; [1]  2  9 22 22</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions8613237" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/8613237/" class="uri">http://stackoverflow.com/questions/8613237/</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>j &lt;- &quot;What kind of cheese isn't your cheese? (wonder) Nacho cheese! (groan) (Laugh)&quot;
+
+library(rex)
+matches &lt;- re_matches(j,
+  rex(
+    &quot;(&quot;,
+    capture(name = &quot;text&quot;, except_any_of(&quot;)&quot;)),
+    &quot;)&quot;),
+  global = TRUE)
+matches
+
+#&gt; [[1]]
+#&gt;     text
+#&gt; 1 wonder
+#&gt; 2  groan
+#&gt; 3  Laugh</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions22976472" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/22976472" class="uri">http://stackoverflow.com/questions/22976472</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>txt &lt;- as.character(&quot;this is just a test! i'm not sure if this is O.K. or if it will work? who knows. regex is sorta new to me..  There are certain cases that I may not figure out??  sad!  ^_^&quot;)
+
+re &lt;- rex(
+  capture(name = &quot;first_letter&quot;, alnum),
+  capture(name = &quot;sentence&quot;,
+    any_non_puncts,
+    zero_or_more(
+      group(
+        punct %if_next_isnt% space,
+        any_non_puncts
+        )
+      ),
+    maybe(punct)
+    )
+  )
+
+re_substitutes(txt, re, &quot;\\U\\1\\E\\2&quot;, global = TRUE)
+
+#&gt; [1] &quot;This is just a test! I'm not sure if this is O.K. Or if it will work? Who knows. Regex is sorta new to me..  There are certain cases that I may not figure out??  Sad!  ^_^&quot;</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27172007" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/27172007" class="uri">http://stackoverflow.com/questions/27172007</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>x &lt;- data.frame(
+  locationid = c(
+    1073744023,
+    1073744022,
+    1073744025,
+    1073744024,
+    1073744021,
+    1073744026
+    ),
+  address = c(
+    &quot;525 East 68th Street, New York, NY      10065, USA&quot;,
+    &quot;270 Park Avenue, New York, NY 10017, USA&quot;,
+    &quot;Rockefeller Center, 50 Rockefeller Plaza, New York, NY 10020, USA&quot;,
+    &quot;1251 Avenue of the Americas, New York, NY 10020, USA&quot;,
+    &quot;1301 Avenue of the Americas, New York, NY 10019, USA&quot;,
+    &quot;44 West 45th Street, New York, NY 10036, USA&quot;
+    ))
+
+library(rex)
+
+sep &lt;- rex(&quot;,&quot;, spaces)
+
+re &lt;-
+  rex(
+    capture(name = &quot;address&quot;,
+      except_some_of(&quot;,&quot;)
+    ),
+    sep,
+    capture(name = &quot;city&quot;,
+      except_some_of(&quot;,&quot;)
+    ),
+    sep,
+    capture(name = &quot;state&quot;,
+      uppers
+    ),
+    spaces,
+    capture(name = &quot;zip&quot;,
+      some_of(digit, &quot;-&quot;)
+    ),
+    sep,
+    capture(name = &quot;country&quot;,
+      something
+    ))
+
+re_matches(x$address, re)
+
+#&gt;                       address     city state   zip country
+#&gt; 1        525 East 68th Street New York    NY 10065     USA
+#&gt; 2             270 Park Avenue New York    NY 10017     USA
+#&gt; 3        50 Rockefeller Plaza New York    NY 10020     USA
+#&gt; 4 1251 Avenue of the Americas New York    NY 10020     USA
+#&gt; 5 1301 Avenue of the Americas New York    NY 10019     USA
+#&gt; 6         44 West 45th Street New York    NY 10036     USA</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27155297" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/27155297/" class="uri">http://stackoverflow.com/questions/27155297/</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>library(rex)
+x &lt;- c(
+&quot;https://support.google.com/blogger/topic/12457
+https://support.google.com/blogger/topic/12457.
+https://support.google.com/blogger/topic/12457] 
+
+https://support.google.com/blogger/topic/12457,
+https://support.google.com/blogger/topic/12457),
+xxxxxxhttps://support.google.com/blogger/topic/12457),hhhththta&quot;)
+
+re &lt;- rex(
+  capture(name = &quot;url&quot;,
+    &quot;https://support.google.com/blogger/topic/&quot;,
+    digits
+    ))
+
+re_matches(x, re, global = TRUE)[[1]]
+
+#&gt;                                              url
+#&gt; 1 https://support.google.com/blogger/topic/12457
+#&gt; 2 https://support.google.com/blogger/topic/12457
+#&gt; 3 https://support.google.com/blogger/topic/12457
+#&gt; 4 https://support.google.com/blogger/topic/12457
+#&gt; 5 https://support.google.com/blogger/topic/12457
+#&gt; 6 https://support.google.com/blogger/topic/12457</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27219421" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/27219421" class="uri">http://stackoverflow.com/questions/27219421</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>tmp &lt;- c(&quot;Little Street&quot;,&quot;A323&quot;, &quot;Essex Road (A43)&quot;, &quot;M43&quot;,&quot;Orange street&quot;,&quot;M4&quot;,&quot;B2045&quot;,&quot;New Street&quot;)
+
+library(rex)
+classify_road &lt;- function(x) {
+  res &lt;- re_matches(x,
+    rex(
+      capture(name = &quot;type&quot;,
+        upper
+      ),
+      digit
+    )
+  )
+
+  res$type[ is.na(res$type) ] &lt;- &quot;Minor&quot;
+  paste(res$type, &quot;Road&quot;)
+}
+
+classify_road(tmp)
+
+#&gt; [1] &quot;Minor Road&quot; &quot;A Road&quot;     &quot;A Road&quot;     &quot;M Road&quot;     &quot;Minor Road&quot;
+#&gt; [6] &quot;M Road&quot;     &quot;B Road&quot;     &quot;Minor Road&quot;</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions22247410" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/22247410" class="uri">http://stackoverflow.com/questions/22247410</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>x &lt;- &quot;this is a multiline text 
+          some more test here 
+          before we get to the good stuff 
+          \\end{figure}&quot;
+
+re &lt;- rex(&quot;\\end{figure}&quot;)
+re_matches(x, re)
+
+#&gt; [1] TRUE
+
+
+regexpr(re, x, perl = TRUE)
+
+#&gt; [1] 111
+#&gt; attr(,&quot;match.length&quot;)
+#&gt; [1] 12
+#&gt; attr(,&quot;useBytes&quot;)
+#&gt; [1] TRUE</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions23447261" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/23447261" class="uri">http://stackoverflow.com/questions/23447261</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>x = structure(list(text = structure(c(4L, 6L, 1L, 2L, 5L, 3L), .Label =     c(&quot;ãããæããããéãããæãããInappropriate announce:-(&quot;, 
+&quot;@AirAsia your direct debit (Maybank) payment gateways is not working. Is it something     you are working to fix?&quot;, 
+&quot;@AirAsia Apart from the slight delay and shortage of food on our way back from Phuket, both flights were very smooth. Kudos :)&quot;, 
+&quot;RT @AirAsia: ØØÙØÙÙÙÙ ÙØØØ ØØØÙ ÙØØØØÙ ØØØØÙÙÙí í Now you can enjoy a #great :D breakfast onboard with our new breakfast meals! :D&quot;, 
+&quot;xdek ke flight @AirAsia Malaysia to LA... hahah..:p bagi la promo murah2 sikit, kompom aku beli...&quot;, 
+&quot;You know there is a problem when customer service asks you to wait for 103 minutes and your no is 42 in the queue. X-(&quot;
+), class = &quot;factor&quot;), created = structure(c(5L, 4L, 4L, 3L, 2L, 
+1L), .Label = c(&quot;1/2/2014 16:14&quot;, &quot;1/2/2014 17:00&quot;, &quot;3/2/2014 0:54&quot;, 
+&quot;3/2/2014 0:58&quot;, &quot;3/2/2014 1:28&quot;), class = &quot;factor&quot;)), .Names = c(&quot;text&quot;, 
+&quot;created&quot;), class = &quot;data.frame&quot;, row.names = c(NA, -6L))
+
+emots &lt;- as.character(outer(c(&quot;:&quot;, &quot;;&quot;, &quot;:-&quot;, &quot;;-&quot;), c(&quot;)&quot;, &quot;(&quot;, &quot;]&quot;, &quot;[&quot;, &quot;D&quot;, &quot;o&quot;, &quot;O&quot;, &quot;P&quot;, &quot;p&quot;), paste0))
+
+re_matches(x$text,
+  rex(
+    capture(name = &quot;emoticons&quot;,
+      or(emots)
+    )
+  ),
+  global = T)
+
+#&gt; [[1]]
+#&gt;   emoticons
+#&gt; 1        :D
+#&gt; 2        :D
+#&gt; 
+#&gt; [[2]]
+#&gt;   emoticons
+#&gt; 1      &lt;NA&gt;
+#&gt; 
+#&gt; [[3]]
+#&gt;   emoticons
+#&gt; 1       :-(
+#&gt; 
+#&gt; [[4]]
+#&gt;   emoticons
+#&gt; 1      &lt;NA&gt;
+#&gt; 
+#&gt; [[5]]
+#&gt;   emoticons
+#&gt; 1        :p
+#&gt; 
+#&gt; [[6]]
+#&gt;   emoticons
+#&gt; 1        :)</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27234040" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/27234040" class="uri">http://stackoverflow.com/questions/27234040</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>z &lt;- &quot;&lt;TABLE ALIGN=\&quot;RIGHT\&quot; BORDER CELLSPACING=\&quot;0\&quot; CELLPADDING=\&quot;0\&quot;&gt;
+   &lt;CAPTION&gt;&lt;B&gt;MESA HIGH VICTORIES&lt;/B&gt;&lt;/CAPTION&gt;
+   &lt;TH&gt;Team&lt;/TH&gt;
+   &lt;TH&gt;Score&lt;/TH&gt;
+   &lt;TR ALIGN=\&quot;CENTER\&quot;&gt;
+   &lt;TD&gt;&lt;B&gt;Parkfield High Demons&lt;/B&gt;&lt;/TD&gt;
+   &lt;TD&gt;&lt;B&gt;28 to 21&lt;/B&gt;&lt;/TD&gt;
+   &lt;/TR&gt;
+   &lt;TR ALIGN=\&quot;CENTER\&quot;&gt;
+   &lt;TD&gt;&lt;B&gt;Burns High Badgers&lt;/B&gt;&lt;/TD&gt;
+   &lt;TD&gt;&lt;B&gt;14 to 13&lt;/B&gt;&lt;/TD&gt;
+   &lt;/TR&gt;
+   &lt;/TABLE&gt;&quot;
+
+re_matches(z,
+  rex(
+    capture(name=&quot;table&quot;,
+      &quot;&lt;TABLE&quot;, zero_or_more(any, type = &quot;lazy&quot;), &quot;&lt;TR&quot;
+    )
+  ), options=&quot;single-line&quot;)
+
+#&gt;                                                                                                                                                         table
+#&gt; 1 &lt;TABLE ALIGN=&quot;RIGHT&quot; BORDER CELLSPACING=&quot;0&quot; CELLPADDING=&quot;0&quot;&gt;\n   &lt;CAPTION&gt;&lt;B&gt;MESA HIGH VICTORIES&lt;/B&gt;&lt;/CAPTION&gt;\n   &lt;TH&gt;Team&lt;/TH&gt;\n   &lt;TH&gt;Score&lt;/TH&gt;\n   &lt;TR</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27236435" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/27236435" class="uri">http://stackoverflow.com/questions/27236435</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>x &lt;- &quot;John a11|a12|\n  Ana a21|a22|\n  Jake a31|a23|\n   &quot;
+
+re_matches(x,
+  rex(
+      any_spaces,
+      capture(name = &quot;text&quot;,
+        except_some_of(&quot;|&quot;)
+      ),
+      any_spaces),
+  global = TRUE)[[1]]
+
+#&gt;       text
+#&gt; 1 John a11
+#&gt; 2      a12
+#&gt; 3  Ana a21
+#&gt; 4      a22
+#&gt; 5 Jake a31
+#&gt; 6      a23
+#&gt; 7</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions25764839" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/25764839" class="uri">http://stackoverflow.com/questions/25764839</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>x &lt;- &quot;MSGSRRKATPASRTRVGNYEMGRTLGEGSFAKVKYAKNTVTGDQAAIKILDREKVFRHKMVEQLKREISTMKLIKHPNVVEIIEVMASKTKIYIVLELVNGGELFDKIAQQGRLKEDEARRYFQQLINAVDYCHSRGVYHRDLKPENLILDANGVLKVSDFGLSAFSRQVREDGLLHTACGTPNYVAPEVLSDKGYDGAAADVWSCGVILFVLMAGYLPFDEPNLMTLYKRICKAEFSCPPWFSQGAKRVIKRILEPNPITRISIAELLEDEWFKKGYKPPSFDQDDEDITIDDVDAAFSNSKECLVTEKKEKPVSMNAFELISSSSEFSLENLFEKQAQLVKKETRFTSQRSASEIMSKMEETAKPLGFNVRKDNYKIKMKGDKSGRKGQLSVATEVFEVAPSLHVVELRKTGGDTLEFHKVCDSFYKNFSSGLKDVVWNTDAAAEEQKQ&quot;
+re_matches(x,
+  rex(
+    capture(name = &quot;amino_acids&quot;,
+      n(any, 6),
+      &quot;K&quot;,
+      n(any, 6)
+      )
+    ),
+  global = TRUE)[[1]]
+
+#&gt;      amino_acids
+#&gt; 1  MSGSRRKATPASR
+#&gt; 2  GEGSFAKVKYAKN
+#&gt; 3  GDQAAIKILDREK
+#&gt; 4  KMVEQLKREISTM
+#&gt; 5  IEVMASKTKIYIV
+#&gt; 6  GGELFDKIAQQGR
+#&gt; 7  VYHRDLKPENLIL
+#&gt; 8  DANGVLKVSDFGL
+#&gt; 9  PEVLSDKGYDGAA
+#&gt; 10 NLMTLYKRICKAE
+#&gt; 11 WFSQGAKRVIKRI
+#&gt; 12 LEDEWFKKGYKPP
+#&gt; 13 AAFSNSKECLVTE
+#&gt; 14 LENLFEKQAQLVK
+#&gt; 15 ASEIMSKMEETAK
+#&gt; 16 LGFNVRKDNYKIK
+#&gt; 17 GDKSGRKGQLSVA
+#&gt; 18 HVVELRKTGGDTL
+#&gt; 19 VCDSFYKNFSSGL
+
+
+locs &lt;- re_matches(x,
+  rex(
+    &quot;K&quot; %if_prev_is% n(any, 6) %if_next_is% n(any, 6)
+    ),
+  global = TRUE, locations = TRUE)[[1]]
+
+substring(x, locs$start - 6, locs$end + 6)
+
+#&gt;  [1] &quot;MSGSRRKATPASR&quot; &quot;GEGSFAKVKYAKN&quot; &quot;GSFAKVKYAKNTV&quot; &quot;AKVKYAKNTVTGD&quot;
+#&gt;  [5] &quot;GDQAAIKILDREK&quot; &quot;KILDREKVFRHKM&quot; &quot;EKVFRHKMVEQLK&quot; &quot;KMVEQLKREISTM&quot;
+#&gt;  [9] &quot;REISTMKLIKHPN&quot; &quot;STMKLIKHPNVVE&quot; &quot;IEVMASKTKIYIV&quot; &quot;VMASKTKIYIVLE&quot;
+#&gt; [13] &quot;GGELFDKIAQQGR&quot; &quot;AQQGRLKEDEARR&quot; &quot;VYHRDLKPENLIL&quot; &quot;DANGVLKVSDFGL&quot;
+#&gt; [17] &quot;PEVLSDKGYDGAA&quot; &quot;NLMTLYKRICKAE&quot; &quot;LYKRICKAEFSCP&quot; &quot;WFSQGAKRVIKRI&quot;
+#&gt; [21] &quot;GAKRVIKRILEPN&quot; &quot;LEDEWFKKGYKPP&quot; &quot;EDEWFKKGYKPPS&quot; &quot;WFKKGYKPPSFDQ&quot;
+#&gt; [25] &quot;AAFSNSKECLVTE&quot; &quot;ECLVTEKKEKPVS&quot; &quot;CLVTEKKEKPVSM&quot; &quot;VTEKKEKPVSMNA&quot;
+#&gt; [29] &quot;LENLFEKQAQLVK&quot; &quot;KQAQLVKKETRFT&quot; &quot;QAQLVKKETRFTS&quot; &quot;ASEIMSKMEETAK&quot;
+#&gt; [33] &quot;KMEETAKPLGFNV&quot; &quot;LGFNVRKDNYKIK&quot; &quot;VRKDNYKIKMKGD&quot; &quot;KDNYKIKMKGDKS&quot;
+#&gt; [37] &quot;NYKIKMKGDKSGR&quot; &quot;IKMKGDKSGRKGQ&quot; &quot;GDKSGRKGQLSVA&quot; &quot;HVVELRKTGGDTL&quot;
+#&gt; [41] &quot;DTLEFHKVCDSFY&quot; &quot;VCDSFYKNFSSGL&quot; &quot;NFSSGLKDVVWNT&quot;</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions15954171" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/15954171" class="uri">http://stackoverflow.com/questions/15954171</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>x &lt;- c(&quot;System configuration: lcpu=96 mem=196608MB ent=16.00&quot;)
+
+library(rex)
+val &lt;- as.numeric(
+  re_matches(x,
+    rex(&quot;ent=&quot;,
+      capture(name = &quot;ent&quot;, some_of(digit, &quot;.&quot;))
+      )
+    )$ent
+  )</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27273996" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/27273996" class="uri">http://stackoverflow.com/questions/27273996</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> to construct the regular expression may make it more understandable.</p>
+<pre><code>x &lt;- c(&quot;_A00_A1234B_&quot;, &quot;_A00_A12345B_&quot;, &quot;_A1_A12345_&quot;)</code></pre>
+<p>approach #1, assumes always is between the second underscores.</p>
+<pre><code>re_matches(x,
+  rex(
+    &quot;_&quot;,
+    anything,
+    &quot;_&quot;,
+    capture(anything),
+    &quot;_&quot;
+  )
+)
+
+#&gt;         1
+#&gt; 1  A1234B
+#&gt; 2 A12345B
+#&gt; 3  A12345</code></pre>
+<p>approach #2, assumes an alpha, followed by 4 or 5 digits with a possible trailing alpha.</p>
+<pre><code>re_matches(x,
+  rex(
+    capture(
+      alpha,
+      between(digit, 4, 5),
+      maybe(alpha)
+    )
+  )
+)
+
+#&gt;         1
+#&gt; 1  A1234B
+#&gt; 2 A12345B
+#&gt; 3  A12345</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27238323" class="section level3">
+<h3>[<a href="http://stackoverflow.com/questions/27238323" class="uri">http://stackoverflow.com/questions/27238323</a>][]</h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>string = c(&quot;ABC3JFD456&quot;, &quot;ARST4DS324&quot;)
+
+re_matches(string,
+  rex(
+    capture(name = &quot;first_number&quot;, digit)
+    )
+  )
+
+#&gt;   first_number
+#&gt; 1            3
+#&gt; 2            4</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27252250" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27252250" class="uri">http://stackoverflow.com/questions/27252250</a></h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>df &lt;- structure(list(Object = c(&quot;T00055&quot;, &quot;T00055&quot;, &quot;E00336&quot;, &quot;E00336&quot;,
+&quot;E00336&quot;, &quot;E00336&quot;, &quot;T 00054&quot;), Coding = c(&quot;T 00055_005_&lt;002_+&quot;,
+&quot;T 00055_008_&lt;002_+&quot;, &quot;E 00336_041_&lt;001_+001_+&quot;, &quot;E 00336_041_&lt;001_+001_+001_+&quot;,
+&quot;E 00336_041_&lt;001_+001_+002_+&quot;, &quot;E 00336_041_&lt;001_+001_+002_&lt;&quot;,
+&quot;T 00054_013_&lt;003_&lt;015_+003_&lt;001_&lt;&quot;), Fn = c(2L, 2L, 3L, 4L,
+4L, 4L, 4L), Remaining = c(30L, 30L, 0L, 10L, 56L, 52L, 52L)), .Names = c(&quot;Object&quot;,
+&quot;Coding&quot;, &quot;Fn&quot;, &quot;Remaining&quot;), row.names = c(NA, -7L), class = &quot;data.frame&quot;)
+
+subset(df, grepl(rex(at_least(group(&quot;_+&quot;, anything), 2)), Coding))
+
+#&gt;   Object                       Coding Fn Remaining
+#&gt; 3 E00336      E 00336_041_&lt;001_+001_+  3         0
+#&gt; 4 E00336 E 00336_041_&lt;001_+001_+001_+  4        10
+#&gt; 5 E00336 E 00336_041_&lt;001_+001_+002_+  4        56
+#&gt; 6 E00336 E 00336_041_&lt;001_+001_+002_&lt;  4        52</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27195734" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27195734" class="uri">http://stackoverflow.com/questions/27195734</a></h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>ids &lt;- c(&quot;367025001&quot;, &quot;CT_341796001&quot;, &quot;M13X01692-01&quot;, &quot;13C025050901&quot;, &quot;13C00699551&quot;)
+
+re_substitutes(ids,
+  rex(non_digits %or% list(&quot;01&quot;, end)),
+  &quot;&quot;,
+  global = TRUE)
+
+#&gt; [1] &quot;3670250&quot;    &quot;3417960&quot;    &quot;1301692&quot;    &quot;130250509&quot;  &quot;1300699551&quot;</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27237233" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27237233" class="uri">http://stackoverflow.com/questions/27237233</a></h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>library(&quot;rvest&quot;)
+library(&quot;stringr&quot;)
+
+minimal &lt;- html(&quot;&lt;!doctype html&gt;&lt;title&gt;blah&lt;/title&gt; &lt;p&gt;&amp;nbsp;foo&quot;)
+
+bodytext &lt;- minimal %&gt;%
+  html_node(&quot;body&quot;) %&gt;%
+  html_text
+
+re_substitutes(bodytext, rex(spaces), &quot;&quot;, global = TRUE)
+
+#&gt; [1] &quot; foo&quot;</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27227229" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27227229" class="uri">http://stackoverflow.com/questions/27227229</a></h3>
+<pre><code>string &lt;- &quot;this\\(system) {is} [full].&quot;
+library(Hmisc)
+gsub(&quot;\\\\(.)&quot;, &quot;\\1&quot;, escapeRegex(string))
+
+#&gt; [1] &quot;this\\(system) {is} [full].&quot;</code></pre>
+<p>Alternatively <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>library(rex)
+re_substitutes(escape(string), rex(&quot;\\&quot;, capture(any)), &quot;\\1&quot;, global = TRUE)
+
+#&gt; &lt;SQL&gt; 'this(system) {is} [full].'</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27317497" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27317497" class="uri">http://stackoverflow.com/questions/27317497</a></h3>
+<p><a href="http://cran.r-project.org/web/packages/rex/">rex</a> has a <a href="http://cran.r-project.org/web/packages/rex/vignettes/log_parsing.html">vignette for parsing server logs</a>. While the format is not exactly the same as your log you should be able to adapt it to your case fairly easily. As far as reading the log in assuming the file fits in memory your best bet is to read the whole file first with <code>readLines()</code>, then the following will put each field into a <code>data.frame</code> column.</p>
+<pre><code>x &lt;- &quot;Feb  6 12:14:14 localhost haproxy[14389]: 10.0.1.2:33317 [06/Feb/2009:12:14:14.655] http-in static/srv1 10/0/30/69/109 200 2750 - - ---- 1/1/1/1/0 0/0 {1wt.eu} {} \&quot;GET /index.html HTTP/1.1\&quot;&quot;
+library(rex)
+re &lt;- rex(
+
+  capture(name = &quot;process_name&quot;, alpha),
+  &quot;[&quot;,
+    capture(name = &quot;pid&quot;, digits),
+  &quot;]:&quot;,
+  spaces,
+  capture(name = &quot;client_ip&quot;, any_of(digit, &quot;.&quot;)),
+  &quot;:&quot;,
+  capture(name = &quot;client_port&quot;, digits),
+  spaces,
+  &quot;[&quot;,
+    capture(name = &quot;accept_date&quot;, except_some_of(&quot;]&quot;)),
+  &quot;]&quot;,
+  spaces,
+  capture(name = &quot;frontend_name&quot;, non_spaces),
+  spaces,
+  capture(name = &quot;backend_name&quot;, except_some_of(&quot;/&quot;)),
+  &quot;/&quot;,
+  capture(name = &quot;server_name&quot;, non_spaces),
+  spaces,
+  capture(name = &quot;Tq&quot;, some_of(&quot;-&quot;, digit)),
+  &quot;/&quot;,
+  capture(name = &quot;Tw&quot;, some_of(&quot;-&quot;, digit)),
+  &quot;/&quot;,
+  capture(name = &quot;Tc&quot;, some_of(&quot;-&quot;, digit)),
+  &quot;/&quot;,
+  capture(name = &quot;Tr&quot;, some_of(&quot;-&quot;, digit)),
+  &quot;/&quot;,
+  capture(name = &quot;Tt&quot;, some_of(&quot;+&quot;, digit)),
+  spaces,
+  capture(name = &quot;status_code&quot;, digits),
+  spaces,
+  capture(name = &quot;bytes_read&quot;, some_of(&quot;+&quot;, digit)),
+  spaces,
+  capture(name = &quot;captured_request_cookie&quot;, non_spaces),
+  spaces,
+  capture(name = &quot;captured_response_cookie&quot;, non_spaces),
+  spaces,
+  capture(name = &quot;termination_state&quot;, non_spaces),
+  spaces,
+  capture(name = &quot;actconn&quot;, digits),
+  &quot;/&quot;,
+  capture(name = &quot;feconn&quot;, digits),
+  &quot;/&quot;,
+  capture(name = &quot;beconn&quot;, digits),
+  &quot;/&quot;,
+  capture(name = &quot;srv_conn&quot;, digits),
+  &quot;/&quot;,
+  capture(name = &quot;retries&quot;, some_of(&quot;+&quot;, digit)),
+  spaces,
+  capture(name = &quot;srv_queue&quot;, digits),
+  &quot;/&quot;,
+  capture(name = &quot;backend_queue&quot;, digits),
+  spaces,
+  &quot;{&quot;,
+    capture(name = &quot;captured_request_headers&quot;, except_any_of(&quot;}&quot;)),
+  &quot;}&quot;,
+  spaces,
+  &quot;{&quot;,
+    capture(name = &quot;captured_response_headers&quot;, except_any_of(&quot;}&quot;)),
+  &quot;}&quot;,
+  spaces,
+  double_quote,
+    capture(name = &quot;http_request&quot;, non_quotes),
+  double_quote)
+
+re_matches(x, re)
+
+#&gt;   process_name   pid client_ip client_port              accept_date
+#&gt; 1            y 14389  10.0.1.2       33317 06/Feb/2009:12:14:14.655
+#&gt;   frontend_name backend_name server_name Tq Tw Tc Tr  Tt status_code
+#&gt; 1       http-in       static        srv1 10  0 30 69 109         200
+#&gt;   bytes_read captured_request_cookie captured_response_cookie
+#&gt; 1       2750                       -                        -
+#&gt;   termination_state actconn feconn beconn srv_conn retries srv_queue
+#&gt; 1              ----       1      1      1        1       0         0
+#&gt;   backend_queue captured_request_headers captured_response_headers
+#&gt; 1             0                   1wt.eu                          
+#&gt;               http_request
+#&gt; 1 GET /index.html HTTP/1.1</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27422350extract-character-preceding-first-dot-in-a-string" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27422350/extract-character-preceding-first-dot-in-a-string" class="uri">http://stackoverflow.com/questions/27422350/extract-character-preceding-first-dot-in-a-string</a></h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>my.data &lt;- read.table(text = '
+     my.string  state
+     .........    A
+     1........    B
+     112......    C
+     11111....    D
+     1111113..    E
+     111111111    F
+     111111111    G
+', header = TRUE, stringsAsFactors = FALSE)
+
+library(rex)
+
+re_matches(my.data$my.string,
+  rex(capture(except(&quot;.&quot;)), &quot;.&quot;))$'1'
+
+#&gt; [1] NA  &quot;1&quot; &quot;2&quot; &quot;1&quot; &quot;3&quot; NA  NA</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27410736" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27410736" class="uri">http://stackoverflow.com/questions/27410736</a></h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>string &lt;- &quot;Shakira - Wolf - 02.Hips don't lie.mp3&quot;
+
+library(rex)
+re_matches(string,
+  rex(capture(zero_or_more(any, type='lazy')), spaces, &quot;-&quot;))$'1'
+
+#&gt; [1] &quot;Shakira&quot;</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27400286" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27400286/" class="uri">http://stackoverflow.com/questions/27400286/</a></h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>string &lt;- &quot;I t is tim e to g o&quot; 
+library(rex)
+re_substitutes(string, rex(
+    space %if_next_is%
+      list(
+        list(non_space, space, at_least(non_space, 2)) %or%
+        list(non_space, end)
+      )
+    ), &quot;&quot;, global = TRUE)
+
+#&gt; [1] &quot;It is time to go&quot;</code></pre>
+</div>
+<div id="httpstackoverflow.comquestions27553126" class="section level3">
+<h3><a href="http://stackoverflow.com/questions/27553126" class="uri">http://stackoverflow.com/questions/27553126</a></h3>
+<p>Using <a href="http://cran.r-project.org/web/packages/rex/index.html">rex</a> may make this type of task a little simpler.</p>
+<pre><code>string &lt;- &quot;01:04:43.064 [12439] &lt;2&gt; xyz
+01:04:43.067 [12439] &lt;2&gt; a lmn
+01:04:43.068 [12439] &lt;4&gt; j klm
+x_times_wait to &lt;3000&gt;
+01:04:43.068 [12439] &lt;4&gt; j klm
+enter_object &lt;5000&gt; main k&quot;
+
+library(rex)
+
+timestamp &lt;- rex(n(digit, 2), &quot;:&quot;, n(digit, 2), &quot;:&quot;, n(digit, 2), &quot;.&quot;, n(digit, 3))
+
+re &lt;- rex(timestamp, space,
+          &quot;[&quot;, digits, &quot;]&quot;, space,
+          &quot;&lt;&quot;, digits, &quot;&gt;&quot;, space,
+          capture(anything))
+
+re_matches(string, re, global = TRUE)
+
+#&gt; [[1]]
+#&gt;       1
+#&gt; 1   xyz
+#&gt; 2 a lmn
+#&gt; 3 j klm
+#&gt; 4 j klm</code></pre>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

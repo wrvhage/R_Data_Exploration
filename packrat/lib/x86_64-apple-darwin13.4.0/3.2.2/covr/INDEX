@@ -1,0 +1,32 @@
+R                       Run R xxx from within R
+RCMD                    Run R CMD xxx from within R
+clear_counters          clear all previous counters
+codecov                 Run covr on a package and upload the result to
+                        codecov.io
+count                   increment a given counter
+coveralls               Run covr on a package and upload the result to
+                        coveralls
+display_name            Retrieve the display name from an object
+display_name<-          Set the display name for an object
+environment_coverage    calculate the coverage on an environment after
+                        evaluating some expressions.
+environment_coverage_   calculate the coverage on an environment after
+                        evaluating some expressions.
+exclusions              Exclusions
+function_coverage       Calculate test coverage for specific function.
+key                     Generate a key for a call
+new_counter             initialize a new counter
+package_coverage        Calculate test coverage for a package
+path                    Get/set the PATH variable.
+percent_coverage        Provide percent coverage of package
+print.coverage          Print a coverage object
+shine                   Display covr results using a shiny app
+subprocess              Run R commands in a R subprocess
+system_check            Run a system command and check if it succeeds.
+system_output           Run a system command and capture the output.
+tally_coverage          Tally coverage by line or expression
+trace_calls             trace each call with a srcref attribute
+value                   Retrieve the value from an object
+with_something          Execute code in temporarily altered
+                        environment.
+zero_coverage           Provide locations of zero coverage

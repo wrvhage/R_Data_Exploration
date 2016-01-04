@@ -1,0 +1,6 @@
+ECIMCI_profiles         ECI/MCI N-Gram Profiles
+TC_char_profiles        TextCat N-Gram Profiles
+textcat                 N-Gram Based Text Categorization
+textcat_options         Textcat Options
+textcat_profile_db      Textcat Profile Dbs
+textcat_xdist           Cross-Distances Between N-Gram Profiles
